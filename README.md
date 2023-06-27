@@ -23,25 +23,43 @@ The contract owner has special privileges and is the only address allowed to min
 
 To deploy the RUK token contract to the local Hardhat test network using Remix Connect Localhost, follow these steps:
 
-1. Open the [Remix](https://remix.ethereum.org/) online IDE in your browser.
+1. Clone the repository and install its dependencies:
 
-2. Create a new file named `Token.sol` and copy the contents of the `Token.sol` file from this repository into it.
+```sh
+git clone https://github.com/NomicFoundation/hardhat-boilerplate.git
+cd hardhat-boilerplate
+npm install
+```
 
-3. Select the Solidity compiler version `0.8.0` or a compatible version.
+2. Install the `@remix-project/remixd` dependency to connect Remix IDE:
 
-4. Compile the contract by clicking the "Compile" button.
+```sh
+npm install -g @remix-project/remixd
+```
 
-5. Switch to the "Deploy & Run Transactions" tab.
+3. Run the following command in the terminal to connect Remix IDE to the Hardhat local host:
 
-6. In the "Environment" dropdown, select "Web3 Provider".
+```sh
+remixd -s ./ --remix-ide https://remix.ethereum.org
+```
 
-7. In a separate terminal, navigate to your project directory and run the local Hardhat network using the command: `npx hardhat node`.
+4. Open a new terminal and start Hardhat's testing network:
 
-8. Copy the URL of the local Hardhat network provided in the terminal (e.g., `http://127.0.0.1:8545`).
+```sh
+npx hardhat node
+```
 
-9. Paste the copied URL into the "Web3 Provider Endpoint" input field in Remix.
+5. Open the [Remix](https://remix.ethereum.org/) online IDE in your browser.
 
-10. Click the "Deploy" button next to the `Token` contract.
+6. In the file explorer in the workspace, select "localhost" to connect to the local Hardhat network.
+
+7. Rewrite the `Token.sol` file in the contracts directory with your RUK token contract code.
+
+8. Compile the contract in the Remix IDE.
+
+9. In the deploy section of Remix, select the environment as "Dev-Hardhat Provider".
+
+10. Deploy your contract on the local Hardhat network using the deploy button in Remix.
 
 11. Confirm the deployment transaction in Remix.
 
