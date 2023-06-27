@@ -1,90 +1,97 @@
-# Hardhat Boilerplate
+# RIDAM Token (RUK) README
 
-This repository contains a sample project that you can use as the starting point
-for your Ethereum project. It's also a great fit for learning the basics of
-smart contract development.
+## Introduction
 
-This project is intended to be used with the
-[Hardhat Beginners Tutorial](https://hardhat.org/tutorial), but you should be
-able to follow it by yourself by reading the README and exploring its
-`contracts`, `tests`, `scripts` and `frontend` directories.
+Welcome to the RIDAM Token (RUK) repository! This repository contains the Solidity smart contract code for the RUK token, an ERC-20 compatible token designed for various purposes. RUK tokens can be used for transactions, rewards, and other activities within an ecosystem.
 
-## Quick start
+This README file provides an overview of the RUK token contract and includes instructions on how to deploy the contract to the local Hardhat test network using Remix Connect Localhost and how to interact with it using Remix with Hardhat provider.
 
-The first things you need to do are cloning this repository and installing its
-dependencies:
+## Contract Details
 
-```sh
-git clone https://github.com/NomicFoundation/hardhat-boilerplate.git
-cd hardhat-boilerplate
-npm install
-```
+The `Token.sol` file contains the source code for the RUK token contract. Here are the key details of the contract:
 
-Once installed, let's run Hardhat's testing network:
+- Token Name: RIDAM Token
+- Token Symbol: RUK
+- Decimals: 18
+- Total Supply: 0 (initially)
 
-```sh
-npx hardhat node
-```
+The contract includes standard ERC-20 functions such as `balanceOf` and `transfer`. It also includes functionalities for minting and burning tokens, accessible only by the contract owner.
 
-Then, on a new terminal, go to the repository's root folder and run this to
-deploy your contract:
+The contract owner has special privileges and is the only address allowed to mint new tokens. Other addresses can interact with the contract by transferring tokens and burning their own tokens.
 
-```sh
-npx hardhat run scripts/deploy.js --network localhost
-```
+## Deployment on Local Hardhat Test Network using Remix Connect Localhost
 
-Finally, we can run the frontend with:
+To deploy the RUK token contract to the local Hardhat test network using Remix Connect Localhost, follow these steps:
 
-```sh
-cd frontend
-npm install
-npm start
-```
+1. Open the [Remix](https://remix.ethereum.org/) online IDE in your browser.
 
-Open [http://localhost:3000/](http://localhost:3000/) to see your Dapp. You will
-need to have [Coinbase Wallet](https://www.coinbase.com/wallet) or [Metamask](https://metamask.io) installed and listening to
-`localhost 8545`.
+2. Create a new file named `Token.sol` and copy the contents of the `Token.sol` file from this repository into it.
 
-## User Guide
+3. Select the Solidity compiler version `0.8.0` or a compatible version.
 
-You can find detailed instructions on using this repository and many tips in [its documentation](https://hardhat.org/tutorial).
+4. Compile the contract by clicking the "Compile" button.
 
-- [Writing and compiling contracts](https://hardhat.org/tutorial/writing-and-compiling-contracts/)
-- [Setting up the environment](https://hardhat.org/tutorial/setting-up-the-environment/)
-- [Testing Contracts](https://hardhat.org/tutorial/testing-contracts/)
-- [Setting up your wallet](https://hardhat.org/tutorial/boilerplate-project#how-to-use-it)
-- [Hardhat's full documentation](https://hardhat.org/docs/)
+5. Switch to the "Deploy & Run Transactions" tab.
 
-For a complete introduction to Hardhat, refer to [this guide](https://hardhat.org/getting-started/#overview).
+6. In the "Environment" dropdown, select "Web3 Provider".
 
-## What's Included?
+7. In a separate terminal, navigate to your project directory and run the local Hardhat network using the command: `npx hardhat node`.
 
-This repository uses our recommended hardhat setup, by using our [`@nomicfoundation/hardhat-toolbox`](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-toolbox). When you use this plugin, you'll be able to:
+8. Copy the URL of the local Hardhat network provided in the terminal (e.g., `http://127.0.0.1:8545`).
 
-- Deploy and interact with your contracts using [ethers.js](https://docs.ethers.io/v5/) and the [`hardhat-ethers`](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-ethers) plugin.
-- Test your contracts with [Mocha](https://mochajs.org/), [Chai](https://chaijs.com/) and our own [Hardhat Chai Matchers](https://hardhat.org/hardhat-chai-matchers) plugin.
-- Interact with Hardhat Network with our [Hardhat Network Helpers](https://hardhat.org/hardhat-network-helpers).
-- Verify the source code of your contracts with the [hardhat-etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan) plugin.
-- Get metrics on the gas used by your contracts with the [hardhat-gas-reporter](https://github.com/cgewecke/hardhat-gas-reporter) plugin.
-- Measure your tests coverage with [solidity-coverage](https://github.com/sc-forks/solidity-coverage).
+9. Paste the copied URL into the "Web3 Provider Endpoint" input field in Remix.
 
-This project also includes [a sample frontend/Dapp](./frontend), which uses [Create React App](https://github.com/facebook/create-react-app).
+10. Click the "Deploy" button next to the `Token` contract.
 
-## Troubleshooting
+11. Confirm the deployment transaction in Remix.
 
-- `Invalid nonce` errors: if you are seeing this error on the `npx hardhat node`
-  console, try resetting your Metamask account. This will reset the account's
-  transaction history and also the nonce. Open Metamask, click on your account
-  followed by `Settings > Advanced > Clear activity tab data`.
+12. Wait for the deployment transaction to be confirmed on the local Hardhat network.
 
-## Setting up your editor
+13. Once the contract is deployed, you will see the contract address in the Remix console. Make note of this address for future interactions.
 
-[Hardhat for Visual Studio Code](https://hardhat.org/hardhat-vscode) is the official Hardhat extension that adds advanced support for Solidity to VSCode. If you use Visual Studio Code, give it a try!
+## Interacting with the Contract using Remix with Hardhat Provider
 
-## Getting help and updates
+After deploying the RUK token contract to the local Hardhat test network, you can interact with the contract using Remix with Hardhat provider. Here are the steps to get started:
 
-If you need help with this project, or with Hardhat in general, please read [this guide](https://hardhat.org/hardhat-runner/docs/guides/getting-help) to learn where and how to get it.
+1. Open the [Remix](https://remix.ethereum.org/) online IDE in your browser.
 
-For the latest news about Hardhat, [follow us on Twitter](https://twitter.com/HardhatHQ), and don't forget to star [our GitHub repository](https://github.com/NomicFoundation/hardhat)!
+2. In the "File Explorer" section, locate the `Token.sol` file and open it.
 
-**Happy _building_!**
+3. In the "Deployed Contracts" section, click on the contract named `Token`.
+
+4. In the "At Address" input field, enter the contract address obtained during deployment.
+
+5. Click the "At Address" button to load the contract instance.
+
+6. You can now interact with the RUK token contract through the provided functions.
+
+   - Use the `balanceOf` function to check the token balance of a specific address.
+   - Use the `transfer` function to send RUK tokens from your address to another address.
+   - Use the `mint` function (accessible only to the contract owner) to mint
+
+ new RUK tokens.
+   - Use the `burn` function to burn a specific amount of your RUK tokens.
+
+7. Set the required parameters for each function and click the corresponding button to execute the transaction.
+
+8. Confirm the transaction details and sign the transaction in Remix.
+
+9. Wait for the transaction to be confirmed on the local Hardhat network.
+
+10. You can view the transaction status and emitted events in the Remix console.
+
+## Authors
+
+RIDAM ADITYA SINHA
+
+https://www.linkedin.com/in/ridam-sinha-188133210/
+
+ridamsinha20@gmail.com
+
+## License
+
+The RIDAM Token (RUK) contract is licensed under the MIT License. See the [`LICENSE`](LICENSE) file for more information.
+
+## Disclaimer
+
+Please note that this contract and the associated README file are provided for informational purposes only. Deploying and interacting with smart contracts involves risks, and it is your responsibility to review and understand the code before proceeding. Make sure to exercise caution and perform appropriate testing before deploying any smart contract on a live network.
